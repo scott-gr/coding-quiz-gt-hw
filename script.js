@@ -1,11 +1,16 @@
 // Start Button on homepage
-var startQuiz = document.querySelector("#startbutton");
+var startQuiz = document.querySelector("#btnStart");
+//Buttons for choices A, B, C, D
+var buttonA = document.querySelector("#btnA");
+var buttonB = document.querySelector("#btnB");
+var buttonC = document.querySelector("#btnC");
+var buttonD = document.querySelector("#btnD");
 // global var for each 'page', so they can be toggled to hide/show in functions
 var homePage = document.querySelector("homepage");
 var quizPage = document.querySelector("question1");
 var scorePage = document.querySelector("scorepage");
 //starting score/timer, may move this into specific function
-var scoreTimer = 60;
+var scoreCount = 60;
 
 //function quizbegin
 //if Start Quiz button pressed, 
