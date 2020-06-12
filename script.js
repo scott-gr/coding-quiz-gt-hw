@@ -11,7 +11,9 @@ var quizPage = document.querySelector('question1');
 var scorePage = document.querySelector('scorepage');
 //starting score/timer, may move this into specific function
 var scoreCount = 60;
+var currentQuestion;
 
+//Array of all questions and answers
 var arrayQuestions = [
   //question 1
   {
@@ -63,13 +65,13 @@ var arrayQuestions = [
 ];
 
 //function checkAnswer
-//if clicked button === correct, text "You are correct!", advance to next question (var # of questions?)
+//if clicked button === correct, text "You are correct!", advance to next question (var # of questions = index in array?)
   //else text "Sorry, that's incorrect", score -= 15, advance to next question
 
 //function quizbegin
 //if Start Quiz button pressed,
-//hide homepage
-//advanced to quizPage
+//hide homepage div
+//advanced to quizPage div
 
 
 
