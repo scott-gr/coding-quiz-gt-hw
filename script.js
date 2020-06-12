@@ -1,5 +1,7 @@
 // Start Button on homepage
 var startQuiz = document.querySelector('#btnStart');
+// fills in question text
+var question = document.querySelector('questionText');
 //Buttons for choices A, B, C, D
 var buttonA = document.querySelector('#btnA');
 var buttonB = document.querySelector('#btnB');
