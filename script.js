@@ -11,6 +11,8 @@ var buttonD = document.querySelector('#btnD');
 var buttonEnd;
 //button to add name to scoreboard
 var buttonName;
+//button to play again
+var buttonReplay;
 // global var for each 'page', so they can be toggled to hide/show in functions
 var homePage = document.querySelector('homepage');
 var quizPage = document.querySelector('question1');
@@ -106,7 +108,7 @@ function scoreTimer(){
 //currentQuestion ++ 
 
   function endGame(){
-    yourScore = scoreCount
+    yourScore = 'Final Score:' + scoreCount;
     quizPage.classList.add('hide');
     timer.classList.add('hide');
     overPage.classList.add('block');
@@ -156,6 +158,10 @@ buttonD.addEventListener('click', function () {
 
 buttonEnd.addEventListener('click', function(){
 // advances from gameover page to scoreboard
+});
+
+buttonReplay.addEventListener('click', function(){
+
 });
 
 //event listener for adding name to scoreboard
