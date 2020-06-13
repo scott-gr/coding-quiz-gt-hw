@@ -108,7 +108,6 @@ function checkAnswer(answer) {
   if (answer === arrayQuestions[currentQuestion].correct) {
     grade.textContent = 'You got it!';
     grade.style.color = '#80bf22';
-    scorecount += 10;
   } else {
     grade.textContent = 'Sorry, incorrect.';
     grade.style.color = '#ae1c09';
