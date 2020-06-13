@@ -14,10 +14,10 @@ var buttonName;
 //button to play again
 var buttonReplay;
 // global var for each 'page', so they can be toggled to hide/show in functions
-var homePage = document.querySelector('homepage');
-var quizPage = document.querySelector('question1');
-var overPage = document.querySelector('')
-var scorePage = document.querySelector('scorepage');
+var homePage = document.querySelector('#homepage');
+var quizPage = document.querySelector('#questions');
+// var overPage = document.querySelector('')
+var scorePage = document.querySelector('#scoreBoard');
 //starting score/timer, may move this into specific function
 var scoreCount = 60;
 var timer = document.querySelector('#scoreDisplay');
@@ -79,7 +79,7 @@ function scoreTimer(){
   var scoreInterval = setInterval(function () {
     //subtracts 1 second
     scoreCount--;
-    timer.textContent = scoreCount + 'seconds remain';
+    timer.textContent = scoreCount + ' seconds remain  ';
     //when timer hits zero, end the game
     if (scoreCount <= 0) {
       clearInterval(scoreInterval);
@@ -87,12 +87,11 @@ function scoreTimer(){
     }
   }, 1000);
 }
-// if scoreCount = 0, end the quiz (gameOver function)
-//show timer element when quiz starts
-//hide timer element qhen quiz ends
-//scoreCount = finalScore at end of quiz
 
-//function askQuestion
+function askQuestions(){
+  homePage.classList.add('hide');
+  quizPage.classList.remove('hide');
+}
 //finalscore = finalscore + scoreCount 
 //if currentQuestion < 5, continue
 ///set question and answer text values to current question
@@ -107,19 +106,13 @@ function scoreTimer(){
 /// scorecount -=15
 //currentQuestion ++ 
 
+// When the game is over, by completing questions or running out of time, this function ends the game and reports the final score
   function endGame(){
     yourScore = 'Final Score:' + scoreCount;
     quizPage.classList.add('hide');
     timer.classList.add('hide');
-    overPage.classList.add('block');
-
+    overPage.classList.remove('hide');
   }
-//hide quizpage div
-//show endpage
-//display final score
-//display text Quiz Complete, your score is
-// display submit score button
-//display play again button?
 
 //scoreBoard function
 //hide endpage
@@ -134,34 +127,32 @@ function scoreTimer(){
 
 //Event listeners
 buttonStart.addEventListener('click', function () {
-  //start timer
-  // hide homepage div
-  //show quizpage div
-  //set currentquestion to 1
+  scoreTimer();
+  askQuestions();
 });
-//Button A click event listener
-buttonA.addEventListener('click', function () {
-  //checkanswer function for current question, choose answer A
-});
-//Button B click event listener
-buttonB.addEventListener('click', function () {
-  //checkanswer function for current question, choose answer B
-});
-//Button C click event listener
-buttonC.addEventListener('click', function () {
-  //checkanswer function for current question, choose answer C
-});
-//Button D click event listener
-buttonD.addEventListener('click', function () {
-  //checkanswer function for current question, choose answer D
-});
+// //Button A click event listener
+// buttonA.addEventListener('click', function () {
+//   //checkanswer function for current question, choose answer A
+// });
+// //Button B click event listener
+// buttonB.addEventListener('click', function () {
+//   //checkanswer function for current question, choose answer B
+// });
+// //Button C click event listener
+// buttonC.addEventListener('click', function () {
+//   //checkanswer function for current question, choose answer C
+// });
+// //Button D click event listener
+// buttonD.addEventListener('click', function () {
+//   //checkanswer function for current question, choose answer D
+// });
 
-buttonEnd.addEventListener('click', function(){
-// advances from gameover page to scoreboard
-});
+// // buttonEnd.addEventListener('click', function(){
+// // // advances from gameover page to scoreboard
+// // });
 
-buttonReplay.addEventListener('click', function(){
+// buttonReplay.addEventListener('click', function(){
 
-});
+// });
 
 //event listener for adding name to scoreboard
