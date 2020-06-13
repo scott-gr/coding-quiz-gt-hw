@@ -16,66 +16,66 @@ var buttonReplay;
 // global var for each 'page', so they can be toggled to hide/show in functions
 var homePage = document.querySelector('#homepage');
 var quizPage = document.querySelector('#questions');
-// var overPage = document.querySelector('')
+var overPage = document.querySelector('#gameOver');
 var scorePage = document.querySelector('#scoreBoard');
 //starting score/timer, may move this into specific function
 var scoreCount = 60;
 var timer = document.querySelector('#scoreDisplay');
 var yourScore = document.querySelector('#gameOverScore');
-var currentQuestion;
+var currentQuestion = 0;
 
 //Array of all questions and answers
 var arrayQuestions = [
   //question 1
   {
     question: 'Commonly used data types DO NOT include:',
-    buttonA: 'strings',
-    buttonB: 'booleans',
-    buttonC: 'alerts',
-    buttonD: 'numbers',
+    aA: 'strings',
+    aB: 'booleans',
+    aC: 'alerts',
+    aD: 'numbers',
     correct: 'alerts',
   },
   //question 2
   {
     question: 'The condition in an if/else statement is enclosed within _____.',
-    buttonA: 'quotes',
-    buttonB: 'curly brackets',
-    buttonC: 'parentheses',
-    buttonD: 'square brackets',
+    aA: 'quotes',
+    aB: 'curly brackets',
+    aC: 'parentheses',
+    aD: 'square brackets',
     correct: 'parentheses',
   },
   //question 3
   {
     question: 'Arrays in JavaScript can be used to store _____.',
-    buttonA: 'numbers and strings',
-    buttonB: 'other arrays',
-    buttonC: 'booleans',
-    buttonD: 'all of the above',
+    aA: 'numbers and strings',
+    aB: 'other arrays',
+    aC: 'booleans',
+    aD: 'all of the above',
     correct: 'all of the above',
   },
   //question 4
   {
     question:
       'String values must be enclosed within _____ when being assigned to variables.',
-    buttonA: 'commas',
-    buttonB: 'curly brackets',
-    buttonC: 'quotes',
-    buttonD: 'parentheses',
+    aA: 'commas',
+    aB: 'curly brackets',
+    aC: 'quotes',
+    aD: 'parentheses',
     correct: 'quotes',
   },
   //question 5
   {
     question:
       'A very useful tool used during development and debugging for printing content to the debugger is _____.',
-    buttonA: 'JavaScript',
-    buttonB: 'terminal/bash',
-    buttonC: 'for loops',
-    buttonD: 'console.log',
+    aA: 'JavaScript',
+    aB: 'terminal/bash',
+    aC: 'for loops',
+    aD: 'console.log',
     correct: 'console.log',
   },
 ];
 // function to run timer
-function scoreTimer(){
+function scoreTimer() {
   var scoreInterval = setInterval(function () {
     //subtracts 1 second
     scoreCount--;
@@ -87,32 +87,37 @@ function scoreTimer(){
     }
   }, 1000);
 }
-
-function askQuestions(){
+//function to display questions and answers on each page
+function askQuestions() {
   homePage.classList.add('hide');
   quizPage.classList.remove('hide');
+  timer = timer + scoreCount;
+  if (currentQuestion < 5) {
+    displayQuestion.textContent = questions[currentQuestion].question;
+    buttonA.textContent = arrayQuestions[currentQuestion].aA;
+    buttonB.textContent = arrayQuestions[currentQuestion].aB;
+    buttonC.textContent = arrayQuestions[currentQuestion].aC;
+    buttonD.textContent = arrayQuestions[currentQuestion].aD;
+  } else {
+    endGame();
+  }
 }
-//finalscore = finalscore + scoreCount 
-//if currentQuestion < 5, continue
-///set question and answer text values to current question
-///call checkanswer function
-///else gameOver
 
 //checkanswer function
 //if chosen answer = question
 ///display Correct
-///else 
+///else
 ///display wrong
 /// scorecount -=15
-//currentQuestion ++ 
+//currentQuestion ++
 
 // When the game is over, by completing questions or running out of time, this function ends the game and reports the final score
-  function endGame(){
-    yourScore = 'Final Score:' + scoreCount;
-    quizPage.classList.add('hide');
-    timer.classList.add('hide');
-    overPage.classList.remove('hide');
-  }
+function endGame() {
+  yourScore.textContent = 'Final Score: ' + scoreCount;
+  quizPage.classList.add('hide');
+  timer.classList.add('hide');
+  overPage.classList.remove('hide');
+}
 
 //scoreBoard function
 //hide endpage
@@ -123,7 +128,7 @@ function askQuestions(){
 //adds name and score to scoreboard
 //saves to localstorage
 //display play again button
-// 
+//
 
 //Event listeners
 buttonStart.addEventListener('click', function () {
