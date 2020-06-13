@@ -7,6 +7,8 @@ var buttonA = document.querySelector('#btnA');
 var buttonB = document.querySelector('#btnB');
 var buttonC = document.querySelector('#btnC');
 var buttonD = document.querySelector('#btnD');
+//inform user if they are correct or incorrect
+var grade = document.querySelector('#confirm');
 // button to continue to scoreboard
 var buttonEnd;
 //button to add name to scoreboard
@@ -102,7 +104,20 @@ function askQuestions() {
   }
 }
 
-//checkanswer function
+function checkAnswer(answer) {
+  if (answer === arrayQuestions[currentQuestion].correct) {
+    grade.textContent = 'You got it!';
+    grade.style.color = '#80bf22';
+    scorecount += 10;
+  } else
+  {
+    grade.textContent = 'Sorry, incorrect.';
+    grade.style.color = '#80bf22';
+    scoreCount -= 15;
+  }
+  currentQuestion++;
+  askQuestions();
+};
 //if chosen answer = question
 ///display Correct
 ///else
