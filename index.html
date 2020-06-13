@@ -7,11 +7,12 @@
   <title>Coding Quiz</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href='style.css'>
 </head>
 
 <body>
   <!--Game start page -->
-  <div class="container" id="homepage" style="margin-top: 50px;">
+  <div class="container" id="homepage">
     <div class="row mt-5">
       <div class="col-md-12 intro" style="text-align: center;">
         <!--Game title-->
@@ -32,10 +33,9 @@
   </div>
 
   <!--Questions -->
-  <div class='container' id='questions' style='margin-top: 50px;'>
+  <div class='container, hide' id='questions'>
     <div class="row" style="height: max-content;">
-      <div class="col" id="scoreDisplay"
-        style="font-weight: bold; font-size: 30px; text-align: right; color: darkorange;">60</div>
+      <div class="col" id="scoreDisplay">60</div>
     </div>
     <div class="row mt-5">
       <div class="col-md-12" style="text-align: center;">
@@ -62,12 +62,12 @@
     </div>
   </div>
   <!--game over page-->
-  <div class='container' id='gameOver' style='margin-top: 50px;'>
+  <div class='container, hide' id='gameOver'>
     <div class="row mt-5">
       <div class="col-md-12" style="text-align: center;">
-        <h3 id='gameOverHeader'></h3>
+        <h3 id='gameOverHeader'>You did it!</h3>
         <hr>
-        <p id='gameOverText'>Thanks for playing. Your final score is:</p>
+        <p id='gameOverText'>Thanks for playing! Your final score is:</p>
         <p id='gameOverScore'>XX</p>
         <button class='btn btn-success btn-md' style='margin-top: 9px;' id='btnSubmit'>Submit Score</button>  <button
           class="btn btn-secondary btn-md" style="margin-top: 9px;" id="playAgain">Play Again?</button> 
@@ -75,8 +75,13 @@
     </div>
   </div>
   <!-- scoreboard page-->
-  <div class='container scoreboard'>
-
+  <div class='container hide' id='scoreboard'>
+    <div class="row mt-5">
+      <div class="col-md-12" style="text-align: center;">
+        <h3>High Scores</h3>
+        <hr>
+      </div>
+    </div>
   </div>
 
 

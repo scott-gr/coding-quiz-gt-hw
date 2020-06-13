@@ -2,6 +2,10 @@
   padding: 10%;
   text-align: center;
 }
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 /* added and remove this class to html elements to hide and show divs*/
 .hide {
@@ -13,4 +17,11 @@
   color: darkorange;
   font-weight: bold;
   font-size: 30px;
+}
+
+#gameOverScore {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: darkorange;
 }
