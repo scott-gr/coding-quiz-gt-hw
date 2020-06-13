@@ -7,3 +7,10 @@
 .hide {
   display: none;
 }
+
+#scoreDisplay {
+  text-align: right;
+  color: darkorange;
+  font-weight: bold;
+  font-size: 30px;
+}

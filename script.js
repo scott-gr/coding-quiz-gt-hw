@@ -10,14 +10,16 @@ var buttonD = document.querySelector('#btnD');
 // button to continue to scoreboard
 var buttonEnd;
 //button to add name to scoreboard
-var buttonName,
+var buttonName;
 // global var for each 'page', so they can be toggled to hide/show in functions
 var homePage = document.querySelector('homepage');
 var quizPage = document.querySelector('question1');
+var overPage = document.querySelector('')
 var scorePage = document.querySelector('scorepage');
 //starting score/timer, may move this into specific function
 var scoreCount = 60;
-var finalScore ;
+var timer = document.querySelector('#scoreDisplay');
+var yourScore = document.querySelector('#gameOverScore');
 var currentQuestion;
 
 //Array of all questions and answers
@@ -70,8 +72,19 @@ var arrayQuestions = [
     correct: 'console.log',
   },
 ];
-
-//function scoreTimer
+// function to run timer
+function scoreTimer(){
+  var scoreInterval = setInterval(function () {
+    //subtracts 1 second
+    scoreCount--;
+    timer.textContent = scoreCount + 'seconds remain';
+    //when timer hits zero, end the game
+    if (scoreCount <= 0) {
+      clearInterval(scoreInterval);
+      endGame();
+    }
+  }, 1000);
+}
 // if scoreCount = 0, end the quiz (gameOver function)
 //show timer element when quiz starts
 //hide timer element qhen quiz ends
@@ -92,7 +105,13 @@ var arrayQuestions = [
 /// scorecount -=15
 //currentQuestion ++ 
 
-//gameOver function
+  function endGame(){
+    yourScore = scoreCount
+    quizPage.classList.add('hide');
+    timer.classList.add('hide');
+    overPage.classList.add('block');
+
+  }
 //hide quizpage div
 //show endpage
 //display final score
@@ -133,6 +152,10 @@ buttonC.addEventListener('click', function () {
 //Button D click event listener
 buttonD.addEventListener('click', function () {
   //checkanswer function for current question, choose answer D
+});
+
+buttonEnd.addEventListener('click', function(){
+// advances from gameover page to scoreboard
 });
 
 //event listener for adding name to scoreboard
