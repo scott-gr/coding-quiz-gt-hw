@@ -1,12 +1,14 @@
 // Start Button on homepage
 var buttonStart = document.querySelector('#btnStart');
 // fills in question text
-var question = document.querySelector('questionText');
+var question = document.querySelector('#questionText');
 //Buttons for choices A, B, C, D
 var buttonA = document.querySelector('#btnA');
 var buttonB = document.querySelector('#btnB');
 var buttonC = document.querySelector('#btnC');
 var buttonD = document.querySelector('#btnD');
+//inform user if they are correct or incorrect
+var grade = document.querySelector('#confirm');
 // button to continue to scoreboard
 var buttonEnd;
 //button to add name to scoreboard
@@ -28,7 +30,7 @@ var currentQuestion = 0;
 var arrayQuestions = [
   //question 1
   {
-    question: 'Commonly used data types DO NOT include:',
+    qQ: 'Commonly used data types DO NOT include:',
     aA: 'strings',
     aB: 'booleans',
     aC: 'alerts',
@@ -37,7 +39,7 @@ var arrayQuestions = [
   },
   //question 2
   {
-    question: 'The condition in an if/else statement is enclosed within _____.',
+    qQ: 'The condition in an if/else statement is enclosed within _____.',
     aA: 'quotes',
     aB: 'curly brackets',
     aC: 'parentheses',
@@ -46,7 +48,7 @@ var arrayQuestions = [
   },
   //question 3
   {
-    question: 'Arrays in JavaScript can be used to store _____.',
+    qQ: 'Arrays in JavaScript can be used to store _____.',
     aA: 'numbers and strings',
     aB: 'other arrays',
     aC: 'booleans',
@@ -55,7 +57,7 @@ var arrayQuestions = [
   },
   //question 4
   {
-    question:
+    qQ:
       'String values must be enclosed within _____ when being assigned to variables.',
     aA: 'commas',
     aB: 'curly brackets',
@@ -65,7 +67,7 @@ var arrayQuestions = [
   },
   //question 5
   {
-    question:
+    qQ:
       'A very useful tool used during development and debugging for printing content to the debugger is _____.',
     aA: 'JavaScript',
     aB: 'terminal/bash',
@@ -91,9 +93,8 @@ function scoreTimer() {
 function askQuestions() {
   homePage.classList.add('hide');
   quizPage.classList.remove('hide');
-  timer = timer + scoreCount;
   if (currentQuestion < 5) {
-    displayQuestion.textContent = questions[currentQuestion].question;
+    question.textContent = arrayQuestions[currentQuestion].qQ;
     buttonA.textContent = arrayQuestions[currentQuestion].aA;
     buttonB.textContent = arrayQuestions[currentQuestion].aB;
     buttonC.textContent = arrayQuestions[currentQuestion].aC;
@@ -103,7 +104,20 @@ function askQuestions() {
   }
 }
 
-//checkanswer function
+function checkAnswer(answer) {
+  if (answer === arrayQuestions[currentQuestion].correct) {
+    grade.textContent = 'You got it!';
+    grade.style.color = '#80bf22';
+    scorecount += 10;
+  } else
+  {
+    grade.textContent = 'Sorry, incorrect.';
+    grade.style.color = '#80bf22';
+    scoreCount -= 15;
+  }
+  currentQuestion++;
+  askQuestions();
+};
 //if chosen answer = question
 ///display Correct
 ///else
