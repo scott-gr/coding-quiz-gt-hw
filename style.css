@@ -1,9 +1,9 @@
-h1 {
-  
-}
-
 .intro {
   padding: 10%;
-  min-width: fit-content;
   text-align: center;
+}
+
+/* added and remove this class to html elements to hide and show divs*/
+.hide {
+  display: none;
 }

@@ -11,54 +11,62 @@
 
 <body>
   <!--Game start page -->
-  <div class="container homepage">
+  <div class="container" id="homepage" style="margin-top: 50px;">
     <div class="row mt-5">
-      <div class="col-md"></div>
-      <div class="col-md-8 intro" style="text-align: center;">
+      <div class="col-md-12 intro" style="text-align: center;">
         <!--Game title-->
         <header>
-          <h1>Coding Quiz Challenge</h1>
+          <h1 class=" homepageHeader">Coding Quiz Challenge</h1>
         </header>
         <main>
           <p class="start">
-            Try to answer the following coding questions within the time limit.
-            <br>
-            <br>
-            Incorrect answers will penalize your Score/Time by 10 seconds!
+            Try to answer the following coding questions within the time limit. Incorrect answers will penalize your
+            Score/Time by 10 seconds!
           </p>
-          <button class="btn btn-success btn-md" id=startbutton>
+          <button class="btn btn-success btn-md" id="btnStart">
             Start Quiz
           </button>
         </main>
       </div>
-      <div class="col-md"></div>
     </div>
   </div>
 
-  <!--Question 1-->
-  <div class="container question1">
+  <!--Questions -->
+  <div class="container questions">
+    <main>
+      <h3 id="questionText"></h3>
+      <br>
+      <button class="btn btn-info btn-md" style="margin-top: 9px;">
+        <span id="btnA">button A</span>
+      </button>
+      <br>
+      <button class="btn btn-info btn-md" style="margin-top: 9px;">
+        <span id="btnB">button B</span>
+      </button>
+      <br>
+      <button class="btn btn-info btn-md" style="margin-top: 9px;">
+        <span id="btnC">button C</span>
+      </button>
+      <br>
+      <button class="btn btn-info btn-md" style="margin-top: 9px;">
+        <span id="btnD">button D</span>
+      </button>
+    </main>
+  </div>
+  <!--game over page-->
+  <div class='container gameOver'>
+    <main>
+      <h3 id='gameOverHeader'></h3>
+      <hr>
+      <p id='gameOverText'>Thanks for playing. Your final score is:</p>
+      <br>
+      <p id='gameOverScore'>''</p>
+      <button class='btn btn-success btn-md' style='margin-top: 9px;' id=btnSubmit style="margin-top: 9px;">Submit
+      </button>
+    </main>
 
   </div>
 
-  <!--Question 2-->
-  <div class="container question2">
-  </div>
-
-  <!--Question 3-->
-  <div class="container question3">
-  </div>
-
-  <!--Question 4-->
-  <div class="container question4">
-  </div>
-
-  <!--Question 5-->
-  <div class="container question5">
-  </div>
-
-  <!--Score Page-->
-  <div class="container scorepage">
-  </div>
 
 
   <script src="script.js"></script>
