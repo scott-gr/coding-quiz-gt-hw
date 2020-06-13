@@ -91,6 +91,7 @@ function scoreTimer() {
 }
 //function to display questions and answers on each page
 function askQuestions() {
+  //hides elements for pages which don't include questions
   homePage.classList.add('hide');
   quizPage.classList.remove('hide');
   if (currentQuestion < 5) {
@@ -100,20 +101,24 @@ function askQuestions() {
     buttonC.textContent = arrayQuestions[currentQuestion].aC;
     buttonD.textContent = arrayQuestions[currentQuestion].aD;
   } else {
+    //ends game (goes to game over screen) when 5 questions are asked
     endGame();
   }
 };
 
+//checks if chosen answer matches the correct answer from the array
 function checkAnswer(answer) {
   if (answer === arrayQuestions[currentQuestion].correct) {
+    //congratulates a correct answer with green text
     grade.textContent = 'You got it!';
     grade.style.color = '#80bf22';
-    scorecount += 10;
   } else {
+    //shames an incorrect answer with red text
     grade.textContent = 'Sorry, incorrect.';
     grade.style.color = '#ae1c09';
     scoreCount -= 15;
   }
+  // advances to the next question
   currentQuestion++;
   askQuestions();
 }
