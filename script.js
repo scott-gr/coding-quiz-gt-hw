@@ -102,22 +102,21 @@ function askQuestions() {
   } else {
     endGame();
   }
-}
+};
 
 function checkAnswer(answer) {
   if (answer === arrayQuestions[currentQuestion].correct) {
     grade.textContent = 'You got it!';
     grade.style.color = '#80bf22';
     scorecount += 10;
-  } else
-  {
+  } else {
     grade.textContent = 'Sorry, incorrect.';
-    grade.style.color = '#80bf22';
+    grade.style.color = '#ae1c09';
     scoreCount -= 15;
   }
   currentQuestion++;
   askQuestions();
-};
+}
 //if chosen answer = question
 ///display Correct
 ///else
@@ -149,26 +148,26 @@ buttonStart.addEventListener('click', function () {
   scoreTimer();
   askQuestions();
 });
-// //Button A click event listener
-// buttonA.addEventListener('click', function () {
-//   //checkanswer function for current question, choose answer A
-// });
-// //Button B click event listener
-// buttonB.addEventListener('click', function () {
-//   //checkanswer function for current question, choose answer B
-// });
-// //Button C click event listener
-// buttonC.addEventListener('click', function () {
-//   //checkanswer function for current question, choose answer C
-// });
-// //Button D click event listener
-// buttonD.addEventListener('click', function () {
-//   //checkanswer function for current question, choose answer D
-// });
+//Button A click event listener
+buttonA.addEventListener('click', function () {
+  checkAnswer(arrayQuestions[currentQuestion].aA);
+});
+//Button B click event listener
+buttonB.addEventListener('click', function () {
+  checkAnswer(arrayQuestions[currentQuestion].aB);
+});
+//Button C click event listener
+buttonC.addEventListener('click', function () {
+  checkAnswer(arrayQuestions[currentQuestion].aC);
+});
+//Button D click event listener
+buttonD.addEventListener('click', function () {
+  checkAnswer(arrayQuestions[currentQuestion].aD);
+});
 
-// // buttonEnd.addEventListener('click', function(){
-// // // advances from gameover page to scoreboard
-// // });
+// buttonEnd.addEventListener('click', function(){
+// // advances from gameover page to scoreboard
+// });
 
 // buttonReplay.addEventListener('click', function(){
 
