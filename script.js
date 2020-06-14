@@ -10,7 +10,7 @@ var buttonD = document.querySelector('#btnD');
 //inform user if they are correct or incorrect
 var grade = document.querySelector('#confirm');
 // button to continue to scoreboard
-var buttonEnd;
+var buttonEnd = document.querySelector('#btnSubmit');
 //button to add name to scoreboard
 var buttonName;
 //button to play again
@@ -137,7 +137,10 @@ function endGame() {
   overPage.classList.remove('hide');
 }
 
-//scoreBoard function
+function recordScore (){
+  overPage.classList.add('hide');
+  scorePage.classList.remove('hide');
+}
 //hide endpage
 //show scorepage
 // parse local storage and add to scoreboard html
@@ -170,9 +173,9 @@ buttonD.addEventListener('click', function () {
   checkAnswer(arrayQuestions[currentQuestion].aD);
 });
 
-// buttonEnd.addEventListener('click', function(){
-// // advances from gameover page to scoreboard
-// });
+buttonEnd.addEventListener('click', function(){
+  scoreCount();
+});
 
 // buttonReplay.addEventListener('click', function(){
 
